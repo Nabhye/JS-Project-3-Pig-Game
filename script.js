@@ -52,4 +52,4 @@ btnHold.addEventListener("click", function () {
 
   //Finish the game
 
-  // Switch to the next player
+  //Switch to the next player
