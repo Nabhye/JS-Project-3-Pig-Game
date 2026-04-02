@@ -68,6 +68,10 @@ main {
 }
 .player--active .name { font-weight: 700; }
 .player--active .score { font-weight: 400; }
+.player--winner {
+  background-color: #010101;
+  color: #fff;
+}
 
 /* CURRENT SCORE BOX */
 .current {
