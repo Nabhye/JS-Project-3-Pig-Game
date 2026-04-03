@@ -33,6 +33,17 @@
       <button class="btn btn--hold">📥 Hold</button>
     </main>
 
+    <!-- Rules modal + backdrop -->
+    <div class="backdrop hidden" id="backdrop"></div>
+    <div class="rules hidden" id="rules" role="dialog" aria-labelledby="rules-title">
+      <h3 id="rules-title">Game Rules</h3>
+      <p>Roll the dice and add to your current score. If you roll a <strong>1</strong>, you lose your current score and it's the next player's turn.</p>
+      <p>You can click <strong>Hold</strong> to add your current score to your total. First to reach <strong>100</strong> points wins.</p>
+      <div style="display:flex;justify-content:center;margin-top:1.2rem;">
+        <button class="btn btn--start" id="btn--start">Start Game</button>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

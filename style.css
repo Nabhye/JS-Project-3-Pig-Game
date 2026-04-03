@@ -139,3 +139,61 @@ main {
 .hidden {
   display: none;
 }
+
+/* Backdrop that dims and blocks interaction while rules dialog is open */
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.35);
+  z-index: 50;
+}
+
+/* Centered rules modal */
+.rules {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 48rem;
+  max-width: calc(100% - 4rem);
+  background-color: #ffffff;
+  color: #222;
+  padding: 2.6rem;
+  border-radius: 10px;
+  box-shadow: 0 2.5rem 5rem rgba(0,0,0,0.25);
+  z-index: 60;
+}
+
+.rules h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.rules p {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+.btn--start {
+  margin-top: 0.6rem;
+  padding: 1rem 2.4rem;
+  font-size: 1.6rem;
+  background-color: #c7365f;
+  color: #fff;
+  border-radius: 50rem;
+  box-shadow: 0 1rem 2rem rgba(199,54,95,0.25);
+  cursor: pointer;
+  border: none;
+}
+
+/* When modal is hidden ensure it doesn't capture pointer events */
+.rules.hidden,
+.backdrop.hidden {
+  display: none !important;
+  pointer-events: none !important;
+}
+/* end of original stylesheet */

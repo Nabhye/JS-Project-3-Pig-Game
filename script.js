@@ -21,7 +21,8 @@ const init = function () {
   scores = [0, 0];
   currentScore = 0;
   activePlayer = 0;
-  playing = true;
+  // Pause play until user clicks Start
+  playing = false;
 
   score0El.textContent = 0;
   score1El.textContent = 0;
@@ -33,6 +34,14 @@ const init = function () {
   player1El.classList.remove("player--winner");
   player0El.classList.add("player--active");
   player1El.classList.remove("player--active");
+  // Show rules modal and backdrop on init/new game
+  const rulesInit = document.getElementById('rules');
+  const backdropInit = document.getElementById('backdrop');
+  if (rulesInit) rulesInit.classList.remove('hidden');
+  if (backdropInit) backdropInit.classList.remove('hidden');
+  // Disable roll/hold until Start pressed
+  btnRoll.disabled = true;
+  btnHold.disabled = true;
 };
 init();
 
@@ -79,3 +88,24 @@ btnHold.addEventListener("click", function () {
 
 // Resetting the game
 btnNew.addEventListener("click", init);
+
+// Modal behavior
+const rulesEl = document.getElementById('rules');
+const btnStart = document.getElementById('btn--start');
+const backdropEl = document.getElementById('backdrop');
+
+const startGame = function () {
+  playing = true;
+  btnRoll.disabled = false;
+  btnHold.disabled = false;
+  if (rulesEl) rulesEl.classList.add('hidden');
+  if (backdropEl) backdropEl.classList.add('hidden');
+  if (backdropEl) backdropEl.style.display = 'none';
+};
+
+if (btnStart) {
+  btnStart.addEventListener('click', function (e) {
+    e.stopPropagation();
+    startGame();
+  });
+}
