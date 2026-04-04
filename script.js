@@ -12,6 +12,10 @@ const diceEl = document.querySelector(".dice");
 const btnNew = document.querySelector(".btn--new");
 const btnRoll = document.querySelector(".btn--roll");
 const btnHold = document.querySelector(".btn--hold");
+const displayName0 = document.getElementById('displayName--0');
+const displayName1 = document.getElementById('displayName--1');
+const inputName0 = document.getElementById('input--0');
+const inputName1 = document.getElementById('input--1');
 
 // Game state variables
 let scores, currentScore, activePlayer, playing;
@@ -39,6 +43,16 @@ const init = function () {
   const backdropInit = document.getElementById('backdrop');
   if (rulesInit) rulesInit.classList.remove('hidden');
   if (backdropInit) backdropInit.classList.remove('hidden');
+  // reset name inputs to empty so user can enter new names on New Game
+  if (inputName0) inputName0.value = '';
+  if (inputName1) inputName1.value = '';
+  // reset displayed names to defaults
+  const nameEl0 = document.getElementById('name--0');
+  const nameEl1 = document.getElementById('name--1');
+  if (nameEl0) nameEl0.textContent = 'Player 1';
+  if (nameEl1) nameEl1.textContent = 'Player 2';
+  if (displayName0) displayName0.textContent = 'Player 1';
+  if (displayName1) displayName1.textContent = 'Player 2';
   // Disable roll/hold until Start pressed
   btnRoll.disabled = true;
   btnHold.disabled = true;
@@ -106,6 +120,15 @@ const startGame = function () {
 if (btnStart) {
   btnStart.addEventListener('click', function (e) {
     e.stopPropagation();
+    // Read names from inputs and update displays
+    const name0 = inputName0 && inputName0.value.trim() ? inputName0.value.trim() : 'Player 1';
+    const name1 = inputName1 && inputName1.value.trim() ? inputName1.value.trim() : 'Player 2';
+    const nameEl0 = document.getElementById('name--0');
+    const nameEl1 = document.getElementById('name--1');
+    if (nameEl0) nameEl0.textContent = name0;
+    if (nameEl1) nameEl1.textContent = name1;
+    if (displayName0) displayName0.textContent = name0;
+    if (displayName1) displayName1.textContent = name1;
     startGame();
   });
 }

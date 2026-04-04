@@ -18,14 +18,16 @@ body {
   color: #333;
   background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.6rem;
 }
 
 /* MAIN BOARD */
 main {
   position: relative;
-  width: 100rem;
+  width: min(100rem, calc(100% - 8rem));
   height: 60rem;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(100px);
@@ -196,4 +198,29 @@ main {
   display: none !important;
   pointer-events: none !important;
 }
+
+/* Names bar shown above the board */
+.names-bar {
+  width: min(100rem, calc(100% - 8rem));
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+  color: #fff;
+  font-size: 2.2rem;
+}
+.display-name {
+  background: rgba(255,255,255,0.12);
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+}
+.display-vs { color: rgba(255,255,255,0.85); font-weight: 400; }
+
+/* Name input form inside rules modal */
+.name-form { margin-top: 1.2rem; }
+.name-form .input-row { display:flex; flex-direction:column; gap:0.4rem; margin-bottom:0.8rem; }
+.name-form label { font-size:1.2rem; color:#333; }
+.name-form input { padding:0.6rem 0.8rem; border-radius:6px; border:1px solid #ddd; font-size:1.4rem; }
 /* end of original stylesheet */
